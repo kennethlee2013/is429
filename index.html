@@ -15,7 +15,7 @@
 
       <div class='example-chat-toolbar'>
         <label for='nameInput'>Username:</label>
-        <input ng-model='name' type='text' id='nameInput' placeholder='Please enter your full name'>
+        <input ng-model='fullname' type='text' id='nameInput' placeholder='Please enter your full name'>
       </div>
 
       <ul id='example-messages' class='example-chat-messages'>
@@ -26,7 +26,7 @@
       </ul>
 
       <footer>
-        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Please enter your email'>
+        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Please enter your email to subscribe to us'>
       </footer>
     </div>
 
@@ -51,12 +51,12 @@
 
               //ADD TO FIREBASE
               $scope.messages.$add({
-                name: $scope.name,
+                name: name,
                 email: $scope.email
               });
 
               //RESET MESSAGE
-              $scope.msg = "";
+              $scope.email = "";
             }
           }
         }
