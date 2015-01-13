@@ -26,7 +26,7 @@
       </ul>
 
       <footer>
-        <input ng-model='msg' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
+        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
       </footer>
     </div>
 
@@ -52,7 +52,7 @@
               //ADD TO FIREBASE
               $scope.messages.$add({
                 from: name,
-                body: $scope.msg
+                email: $scope.msg
               });
 
               //RESET MESSAGE
@@ -62,5 +62,6 @@
         }
       ]);
     </script>
+    <a href="http://cflee.github.io/psychic-octo-tribble/">Click here for Lee Chiang Fong's link</a>
   </body>
 </html>
