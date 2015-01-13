@@ -11,22 +11,23 @@
 
     <!-- CHAT MARKUP -->
     <div class='example-chat l-demo-container'>
-      <header>Email subscription</header>
+      <header>Firebase Chat Demo</header>
 
       <div class='example-chat-toolbar'>
-        <label for='nameInput'>Fullname:</label>
-        <input ng-model='fullname' type='text' id='nameInput' placeholder='Please enter your full name'>
+        <label for='nameInput'>Username:</label>
+        <input ng-model='name' type='text' id='nameInput' placeholder='enter a username...'>
       </div>
 
       <ul id='example-messages' class='example-chat-messages'>
         <li ng-repeat='msg in messages'>
-          <strong class='example-chat-username'>My name is {{msg.name}}</strong> and my email is
-          {{msg.email}}
+          <strong class='example-chat-username'>{{msg.from}} ({{msg.email}})</strong>
+          {{msg.body}}
         </li>
       </ul>
 
       <footer>
-        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Please enter your email to subscribe to us'>
+        <input ng-model='msg' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
+        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type your email...'>
       </footer>
     </div>
 
@@ -47,21 +48,24 @@
             //LISTEN FOR RETURN KEY
             if (e.keyCode === 13 && $scope.msg) {
               //ALLOW CUSTOM OR ANONYMOUS USER NAMES
-              var name = $scope.fullname || 'anonymous';
+              var name = $scope.name || 'anonymous';
 
               //ADD TO FIREBASE
               $scope.messages.$add({
-                name: name,
+                from: name,
+                body: $scope.msg,
                 email: $scope.email
               });
 
               //RESET MESSAGE
+              $scope.msg = "";
               $scope.email = "";
             }
           }
         }
       ]);
     </script>
+
     <a href="http://cflee.github.io/psychic-octo-tribble/">Click here for Lee Chiang Fong's link</a>
   </body>
 </html>
