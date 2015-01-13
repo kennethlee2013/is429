@@ -11,10 +11,10 @@
 
     <!-- CHAT MARKUP -->
     <div class='example-chat l-demo-container'>
-      <header>Firebase Chat Demo</header>
+      <header>Email subscription</header>
 
       <div class='example-chat-toolbar'>
-        <label for='nameInput'>Username:</label>
+        <label for='nameInput'>Fullname:</label>
         <input ng-model='fullname' type='text' id='nameInput' placeholder='Please enter your full name'>
       </div>
 
@@ -47,7 +47,7 @@
             //LISTEN FOR RETURN KEY
             if (e.keyCode === 13 && $scope.msg) {
               //ALLOW CUSTOM OR ANONYMOUS USER NAMES
-              var name = $scope.name || 'anonymous';
+              var name = $scope.fullname || 'anonymous';
 
               //ADD TO FIREBASE
               $scope.messages.$add({
