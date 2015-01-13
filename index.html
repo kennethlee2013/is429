@@ -16,18 +16,18 @@
       <div class='example-chat-toolbar'>
         <label for='nameInput'>Username:</label>
         <input ng-model='name' type='text' id='nameInput' placeholder='enter a username...'>
+        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type your email...'>
       </div>
 
       <ul id='example-messages' class='example-chat-messages'>
         <li ng-repeat='msg in messages'>
-          <strong class='example-chat-username'>{{msg.from}} ({{msg.email}})</strong>
+          <strong class='example-chat-username'>Hi, my name is {{msg.from}} and my email is ({{msg.email}}.</strong>
           {{msg.body}}
         </li>
       </ul>
 
       <footer>
         <input ng-model='msg' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
-        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type your email...'>
       </footer>
     </div>
 
@@ -59,7 +59,6 @@
 
               //RESET MESSAGE
               $scope.msg = "";
-              $scope.email = "";
             }
           }
         }
