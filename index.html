@@ -15,18 +15,18 @@
 
       <div class='example-chat-toolbar'>
         <label for='nameInput'>Username:</label>
-        <input ng-model='name' type='text' id='nameInput' placeholder='enter a username...'>
+        <input ng-model='name' type='text' id='nameInput' placeholder='Please enter your full name'>
       </div>
 
       <ul id='example-messages' class='example-chat-messages'>
         <li ng-repeat='msg in messages'>
-          <strong class='example-chat-username'>{{msg.from}}</strong>
-          {{msg.body}}
+          <strong class='example-chat-username'>My name is {{msg.name}}</strong> and my email is
+          {{msg.email}}
         </li>
       </ul>
 
       <footer>
-        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Type a message...'>
+        <input ng-model='email' ng-keydown="addMessage($event)" type='text' id='messageInput'  placeholder='Please enter your email'>
       </footer>
     </div>
 
@@ -51,7 +51,7 @@
 
               //ADD TO FIREBASE
               $scope.messages.$add({
-                from: name,
+                name: name,
                 email: $scope.msg
               });
 
